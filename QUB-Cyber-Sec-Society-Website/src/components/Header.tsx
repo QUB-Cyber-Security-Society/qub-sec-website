@@ -19,7 +19,6 @@ export const Header: React.FC = () => {
     ];
 
     const MotionBox = motion(Box);
-    const MotionTypography = motion(Typography);
 
     return (
         <MotionBox
@@ -65,24 +64,32 @@ export const Header: React.FC = () => {
                     {!isMobile && (
                         <Box sx={{ display: 'flex', gap: 4 }}>
                             {navItems.map((item) => (
-                                <MotionTypography
+                                <Box
                                     key={item.name}
                                     component="a"
                                     href={item.href}
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.95 }}
                                     sx={{
                                         color: theme.palette.text.secondary,
                                         textDecoration: 'none',
-                                        fontFamily: 'monospace',
-                                        letterSpacing: 1,
                                         '&:hover': {
                                             color: theme.palette.text.primary,
                                         },
                                     }}
                                 >
-                                    {item.name}
-                                </MotionTypography>
+                                    <MotionBox
+                                        whileHover={{ scale: 1.1 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontFamily: 'monospace',
+                                                letterSpacing: 1,
+                                            }}
+                                        >
+                                            {item.name}
+                                        </Typography>
+                                    </MotionBox>
+                                </Box>
                             ))}
                         </Box>
                     )}
@@ -112,7 +119,7 @@ export const Header: React.FC = () => {
                     >
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, py: 2 }}>
                             {navItems.map((item) => (
-                                <Typography
+                                <Box
                                     key={item.name}
                                     component="a"
                                     href={item.href}
@@ -120,8 +127,6 @@ export const Header: React.FC = () => {
                                     sx={{
                                         color: theme.palette.text.secondary,
                                         textDecoration: 'none',
-                                        fontFamily: 'monospace',
-                                        letterSpacing: 1,
                                         px: 2,
                                         py: 1,
                                         '&:hover': {
@@ -129,8 +134,20 @@ export const Header: React.FC = () => {
                                         },
                                     }}
                                 >
-                                    {item.name}
-                                </Typography>
+                                    <MotionBox
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <Typography
+                                            sx={{
+                                                fontFamily: 'monospace',
+                                                letterSpacing: 1,
+                                            }}
+                                        >
+                                            {item.name}
+                                        </Typography>
+                                    </MotionBox>
+                                </Box>
                             ))}
                         </Box>
                     </MotionBox>
