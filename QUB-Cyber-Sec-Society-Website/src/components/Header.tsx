@@ -1,7 +1,5 @@
-'use client';
-
 import React, { useState } from 'react';
-import { Button, ThemeProvider, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import theme from '../assets/Theme';
 
 export const Header: React.FC = () => {
@@ -16,8 +14,8 @@ export const Header: React.FC = () => {
     ];
 
     return (
-        <ThemeProvider theme={theme}>
-            <Typography variant="h1" sx={{ color: theme.palette.secondary.main }}>
+        <>
+        <Typography variant="h2" sx={{ color: theme.palette.secondary.main }}>
                 QUB Cyber Security Society
             </Typography>
             <Button
@@ -27,6 +25,7 @@ export const Header: React.FC = () => {
             >
                 Menu
             </Button>
-</ThemeProvider>
+            
+        </>
     );
 };

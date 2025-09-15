@@ -1,5 +1,5 @@
-'use client';
 import React from 'react';
+
 export const Lab: React.FC = () => {
   return (
     <section className="py-12">

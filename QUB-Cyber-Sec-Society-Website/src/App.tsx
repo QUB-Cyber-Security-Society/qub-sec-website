@@ -3,10 +3,12 @@ import { Committee } from './components/Committee';
 import { Lab } from './components/Lab';
 import { Socials } from './components/Socials';
 import { Footer } from './components/Footer';
+import theme from '../src/assets/Theme';
+import { Box } from '@mui/material';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <Box sx={{ backgroundColor: theme.palette.background.default, color: theme.palette.text.primary, minHeight: '100vh' }}>
       <Header />
       <main>
         <Committee />
@@ -14,6 +16,6 @@ export default function App() {
         <Socials />
       </main>
       <Footer />
-    </div>
+    </Box>
   );
 }
