@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, ThemeProvider, Typography } from '@mui/material';
+import theme from '../assets/Theme';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,8 +16,10 @@ export const Header: React.FC = () => {
     ];
 
     return (
-        <header className="bg-gray-900 p-4">
-            <h1 className="text-3xl font-bold text-center">QUB Cyber Security Society</h1>
+        <ThemeProvider theme={theme}>
+            <Typography variant="h1" sx={{ color: theme.palette.secondary.main }}>
+                QUB Cyber Security Society
+            </Typography>
             <Button
                 variant="contained"
                 color="error"
@@ -24,6 +27,6 @@ export const Header: React.FC = () => {
             >
                 Menu
             </Button>
-        </header>
+</ThemeProvider>
     );
 };
