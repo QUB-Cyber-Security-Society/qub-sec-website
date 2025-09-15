@@ -1,23 +1,141 @@
-import React, { useState } from 'react';
-import { Button, Typography } from '@mui/material';
-import theme from '../assets/Theme';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Box, IconButton, Typography, Container, useTheme, useMediaQuery } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import SecurityIcon from '@mui/icons-material/Security';
 
 export const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+    const navItems = [
+        { name: 'HOME', href: '#home' },
+        { name: 'EVENTS', href: '#events' },
+        { name: 'COMMITTEE', href: '#committee' },
+        { name: 'LAB', href: '#lab' },
+        { name: 'SOCIALS', href: '#socials' },
+    ];
+
+    const MotionBox = motion(Box);
+    const MotionTypography = motion(Typography);
 
     return (
-        <>
-        <Typography variant="h2" sx={{ color: theme.palette.secondary.main }}>
-                QUB Cyber Security Society
-            </Typography>
-            <Button
-                variant="contained"
-                color="error"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-                Menu
-            </Button>
-            
-        </>
+        <MotionBox
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            sx={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                zIndex: 50,
+                bgcolor: 'rgba(0, 0, 0, 0.9)',
+                backdropFilter: 'blur(8px)',
+                borderBottom: `1px solid ${theme.palette.text.primary}20`,
+            }}
+        >
+            <Container>
+                <Box sx={{ 
+                    py: 2, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between'
+                }}>
+                    <MotionBox
+                        whileHover={{ scale: 1.05 }}
+                        sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+                    >
+                        <SecurityIcon sx={{ color: theme.palette.text.primary, fontSize: 32 }} />
+                        <Typography 
+                            variant="h6" 
+                            sx={{ 
+                                color: theme.palette.text.primary,
+                                fontFamily: 'monospace',
+                                letterSpacing: 1
+                            }}
+                        >
+                            QUB Cyber Security Society
+                        </Typography>
+                    </MotionBox>
+
+                    {/* Desktop Navigation */}
+                    {!isMobile && (
+                        <Box sx={{ display: 'flex', gap: 4 }}>
+                            {navItems.map((item) => (
+                                <MotionTypography
+                                    key={item.name}
+                                    component="a"
+                                    href={item.href}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    sx={{
+                                        color: theme.palette.text.secondary,
+                                        textDecoration: 'none',
+                                        fontFamily: 'monospace',
+                                        letterSpacing: 1,
+                                        '&:hover': {
+                                            color: theme.palette.text.primary,
+                                        },
+                                    }}
+                                >
+                                    {item.name}
+                                </MotionTypography>
+                            ))}
+                        </Box>
+                    )}
+
+                    {/* Mobile Menu Button */}
+                    {isMobile && (
+                        <IconButton
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            sx={{ color: theme.palette.text.primary }}
+                        >
+                            {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+                        </IconButton>
+                    )}
+                </Box>
+
+                {/* Mobile Navigation */}
+                {isMobile && isMenuOpen && (
+                    <MotionBox
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        sx={{
+                            bgcolor: 'rgba(0, 0, 0, 0.95)',
+                            backdropFilter: 'blur(8px)',
+                            borderBottom: `1px solid ${theme.palette.text.primary}20`,
+                        }}
+                    >
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, py: 2 }}>
+                            {navItems.map((item) => (
+                                <Typography
+                                    key={item.name}
+                                    component="a"
+                                    href={item.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    sx={{
+                                        color: theme.palette.text.secondary,
+                                        textDecoration: 'none',
+                                        fontFamily: 'monospace',
+                                        letterSpacing: 1,
+                                        px: 2,
+                                        py: 1,
+                                        '&:hover': {
+                                            color: theme.palette.text.primary,
+                                        },
+                                    }}
+                                >
+                                    {item.name}
+                                </Typography>
+                            ))}
+                        </Box>
+                    </MotionBox>
+                )}
+            </Container>
+        </MotionBox>
     );
 };
