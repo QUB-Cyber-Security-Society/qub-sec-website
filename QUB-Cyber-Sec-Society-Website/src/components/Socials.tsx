@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  GitHub,
-  Twitter,
   Instagram,
   LinkedIn,
   Mail,
@@ -22,6 +20,7 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material';
+// import Discord from '../assets/Discord-Symbol-Blurple.png';
 
 // Define the dark theme for this component
 const darkTheme = createTheme({
@@ -51,11 +50,11 @@ const darkTheme = createTheme({
 
 interface SocialLink {
   name: string;
-  icon: React.ElementType;
+  icon?: React.ElementType;
   url: string;
   description: string;
   followers?: string;
-  color: string;
+  color?: string;
 }
 
 interface Event {
@@ -92,19 +91,16 @@ const eventTypeColors = {
 export function Socials() {
   const socialLinks: SocialLink[] = [
     {
-      name: 'GitHub',
-      icon: GitHub,
-      url: 'https://github.com/QUB-Cyber-Security-Society',
-      description: 'Check out our open source projects and tools',
-      followers: '2.3k',
-      color: '#bdbdbd',
+      name: 'Discord',
+      // icon: Discord as React.ElementType,
+      url: 'https://discord.com/invite/tBnbC2egUX',
+      description: 'Join our Discord server for real-time updates and discussions',
     },
     {
       name: 'LinkedIn',
       icon: LinkedIn,
       url: 'https://www.linkedin.com/company/qub-cyber-security-society/',
       description: 'Connect with our professional network',
-      followers: '950',
       color: '#1e88e5',
     },
     {
@@ -112,13 +108,12 @@ export function Socials() {
       icon: Instagram,
       url: 'https://www.instagram.com/qubcybersecsoc/',
       description: 'Behind the scenes of our cyber adventures',
-      followers: '1.2k',
       color: '#e91e63',
     },
     {
       name: 'Email',
       icon: Mail,
-      url: 'mailto:contact@qubcyber.com',
+      url: 'mailto:contact@cybersecurity-society@qub.ac.uk',
       description: 'Get in touch with our team directly',
       color: '#66bb6a',
     },
@@ -166,7 +161,7 @@ export function Socials() {
           backgroundColor: 'background.default',
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" sx={{ px: { xs: 10, sm: 12, md: 14 } }}>
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -256,7 +251,7 @@ export function Socials() {
                                   transition: 'color 0.3s',
                                 }}
                               >
-                                <social.icon sx={{ fontSize: 40 }} />
+                                {social.icon && <social.icon sx={{ fontSize: 40 }} />}
                               </Box>
                               <Box>
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -394,25 +389,6 @@ export function Socials() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   viewport={{ once: true }}
                 >
-                  <Box textAlign="center" mt={4}>
-                    <Button
-                      variant="contained"
-                      size="large"
-                      sx={{
-                        backgroundColor: 'primary.main',
-                        color: 'black',
-                        fontFamily: 'monospace',
-                        letterSpacing: 2,
-                        px: 4,
-                        py: 1.5,
-                        '&:hover': {
-                          backgroundColor: '#66bb6a',
-                        },
-                      }}
-                    >
-                      VIEW ALL EVENTS
-                    </Button>
-                  </Box>
                 </motion.div>
               </motion.div>
             </Grid>

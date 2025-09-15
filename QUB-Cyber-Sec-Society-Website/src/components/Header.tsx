@@ -12,10 +12,10 @@ export const Header: React.FC = () => {
 
     const navItems = [
         { name: 'HOME', href: '#home' },
-        { name: 'EVENTS', href: '#events' },
         { name: 'COMMITTEE', href: '#committee' },
         { name: 'LAB', href: '#lab' },
         { name: 'SOCIALS', href: '#socials' },
+        { name: 'EVENTS', href: '#socials' },
     ];
 
     const MotionBox = motion(Box);
@@ -37,10 +37,10 @@ export const Header: React.FC = () => {
             }}
         >
             <Container>
-                <Box sx={{ 
-                    py: 2, 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                <Box sx={{
+                    py: 2,
+                    display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'space-between'
                 }}>
                     <MotionBox
@@ -48,9 +48,9 @@ export const Header: React.FC = () => {
                         sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
                     >
                         <SecurityIcon sx={{ color: theme.palette.text.primary, fontSize: 32 }} />
-                        <Typography 
-                            variant="h6" 
-                            sx={{ 
+                        <Typography
+                            variant="h6"
+                            sx={{
                                 color: theme.palette.text.primary,
                                 fontFamily: 'monospace',
                                 letterSpacing: 1
