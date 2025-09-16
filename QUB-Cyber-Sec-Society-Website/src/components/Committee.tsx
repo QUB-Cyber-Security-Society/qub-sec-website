@@ -61,13 +61,16 @@ export const Committee: React.FC = () => {
           <Typography variant="h2" sx={{ mb: 2 }}>
             {'< MEET_THE_COMMITTEE />'}
           </Typography>
+          <Typography variant="h6" sx={{ maxWidth: '850px', mx: 'auto' }}>
+            Our dedicated committee members are passionate about cybersecurity and committed to fostering a vibrant community.
+          </Typography>
           <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto' }}>
-            Our dedicated team of cybersecurity experts leading the charge in digital defense education.
+            Get to know the team driving our society forward!
           </Typography>
         </MotionBox>
 
-        <Grid 
-          container 
+        <Grid
+          container
           sx={{
             display: 'flex',
             flexDirection: { xs: 'column', sm: 'column', md: 'row' },
@@ -79,9 +82,9 @@ export const Committee: React.FC = () => {
           }}
         >
           {members.map((member, index) => (
-            <Grid 
-              key={member.name} 
-              sx={{ 
+            <Grid
+              key={member.name}
+              sx={{
                 flex: { xs: '1', sm: '1', md: '1 1 calc(33.333% - 32px)' },
                 minWidth: 0
               }}
@@ -100,7 +103,7 @@ export const Committee: React.FC = () => {
                         alt={member.name}
                       />
                     </Box>
-                    
+
                     <Box sx={{ textAlign: 'center' }}>
                       <Typography variant="h6" sx={{ mb: 2 }}>
                         {member.name}
@@ -132,10 +135,10 @@ export const Committee: React.FC = () => {
                       }
                     })}
                   >
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
-                        fontStyle: 'italic', 
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontStyle: 'italic',
                         textAlign: 'center',
                         fontSize: '1.1rem',
                         lineHeight: 1.6
