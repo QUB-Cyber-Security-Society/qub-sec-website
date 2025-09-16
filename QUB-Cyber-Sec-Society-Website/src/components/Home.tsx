@@ -150,18 +150,6 @@ export const Home: React.FC = () => {
                 >
                   JOIN US
                 </Button>
-                <Button
-                  variant="outlined"
-                  color="success"
-                  size="large"
-                  sx={{
-                    fontFamily: 'monospace',
-                    letterSpacing: 1,
-                    px: 4,
-                  }}
-                >
-                  LEARN MORE
-                </Button>
               </Box>
             </Box>
           </Box>
@@ -218,7 +206,7 @@ export const Home: React.FC = () => {
                         variant="body2"
                         sx={{ fontFamily: 'monospace', color: theme.palette.success.light }}
                       >
-                        cyber_defender
+                        cyber_sec_society_member
                       </Typography>
                     </Box>
                     <Box
