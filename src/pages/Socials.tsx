@@ -124,7 +124,6 @@ export function Socials() {
     //.filter(event => new Date(event.date) >= new Date()) - could be used to filter out past events
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-  console.log(upcomingEvents);
 
   return (
     <ThemeProvider theme={darkTheme}>
