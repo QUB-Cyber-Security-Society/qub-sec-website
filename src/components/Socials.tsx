@@ -300,7 +300,7 @@ export function Socials() {
             </Grid>
 
             {/* Upcoming Events */}
-            <Grid item xs={12} lg={6}>
+            <Grid>
               <motion.div // Apply motion props to the div wrapping the Grid item content
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
