@@ -11,7 +11,6 @@ export function Footer() {
       }}
     >
       <Grid container sx={{ maxWidth: 'lg', mx: 'auto', px: 2 }}>
-        {/* Bottom Bar */}
         <Grid>
             <Box
               sx={{

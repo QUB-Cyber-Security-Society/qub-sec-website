@@ -23,3 +23,8 @@ Copy code
 npm run dev
 ```
 Open http://localhost:5173 in your browser to see the app.
+
+## Documentation
+
+- [Updating Events](./docs/updating_events.md)
+````

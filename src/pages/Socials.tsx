@@ -20,6 +20,7 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material';
+import events from '../events.json';
 // import Discord from '../assets/Discord-Symbol-Blurple.png';
 
 // Define the dark theme for this component
@@ -119,37 +120,11 @@ export function Socials() {
     },
   ];
 
-  const upcomingEvents: Event[] = [
-    {
-      id: '1',
-      title: 'Intro to Penetration Testing',
-      date: '2025-09-22',
-      type: 'Workshop',
-      description:
-        'Learn the basics of ethical hacking and penetration testing methodologies.',
-    },
-    {
-      id: '2',
-      title: 'Capture The Flag Competition',
-      date: '2025-09-28',
-      type: 'Competition',
-      description: 'Test your skills in our monthly CTF challenge with prizes for winners.',
-    },
-    {
-      id: '3',
-      title: 'Industry Networking Night',
-      date: '2025-10-05',
-      type: 'Networking',
-      description: 'Meet professionals from leading cybersecurity companies in Belfast.',
-    },
-    {
-      id: '4',
-      title: 'Weekly Society Meeting',
-      date: '2025-10-10',
-      type: 'Meeting',
-      description: 'Regular society meeting to discuss upcoming events and initiatives.',
-    },
-  ];
+  const upcomingEvents: Event[] = (events as Event[])
+    //.filter(event => new Date(event.date) >= new Date()) - could be used to filter out past events
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  console.log(upcomingEvents);
 
   return (
     <ThemeProvider theme={darkTheme}>
