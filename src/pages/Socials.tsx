@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Instagram,
@@ -15,13 +14,13 @@ import {
   Grid,
   Card,
   CardContent,
-  Button,
   Chip,
-  Link,
   ThemeProvider,
   createTheme,
 } from '@mui/material';
 import events from '../events.json';
+import type { SocialContainerProps } from '../components/socials/social-container';
+import SocialContainer from '../components/socials/social-container';
 
 // Define the dark theme for this component
 const darkTheme = createTheme({
@@ -48,15 +47,6 @@ const darkTheme = createTheme({
     },
   },
 });
-
-interface SocialLink {
-  name: string;
-  icon?: React.ElementType;
-  url: string;
-  description: string;
-  followers?: string;
-  color?: string;
-}
 
 interface Event {
   id: string;
@@ -90,12 +80,14 @@ const eventTypeColors = {
 };
 
 export function Socials() {
-  const socialLinks: SocialLink[] = [
+  const socialLinks: SocialContainerProps[] = [
     {
       name: 'Discord',
       icon: DiscordIcon,
       url: 'https://discord.com/invite/tBnbC2egUX',
       description: 'Join our Discord server for real-time updates and discussions',
+      color: '#5865F2',
+      index: 0
     },
     {
       name: 'LinkedIn',
@@ -103,6 +95,7 @@ export function Socials() {
       url: 'https://www.linkedin.com/company/qub-cyber-security-society/',
       description: 'Connect with our professional network',
       color: '#1e88e5',
+      index: 1
     },
     {
       name: 'Instagram',
@@ -110,6 +103,7 @@ export function Socials() {
       url: 'https://www.instagram.com/qubcybersecsoc/',
       description: 'Behind the scenes of our cyber adventures',
       color: '#e91e63',
+      index: 2
     },
     {
       name: 'Email',
@@ -117,6 +111,7 @@ export function Socials() {
       url: 'mailto:contact@cybersecurity-society@qub.ac.uk',
       description: 'Get in touch with our team directly',
       color: '#66bb6a',
+      index: 3
     },
   ];
 
@@ -170,7 +165,7 @@ export function Socials() {
           <Grid container spacing={6}>
             {/* Social Links */}
             <Grid>
-              <motion.div // Apply motion props to the div wrapping the Grid item content
+              <motion.div
                 initial={{ x: -50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.6 }}
@@ -190,84 +185,15 @@ export function Socials() {
                 </Typography>
                 <Box sx={{ display: 'grid', gap: 2 }}>
                   {socialLinks.map((social, index) => (
-                    <motion.div // Individual item animation
+                    <SocialContainer
                       key={social.name}
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ x: 10 }}
-                    >
-                      <Card
-                        sx={{
-                          backgroundColor: 'background.paper',
-                          border: '1px solid rgba(76, 175, 80, 0.3)',
-                          transition: 'border-color 0.3s',
-                          '&:hover': {
-                            borderColor: 'rgba(76, 175, 80, 0.6)',
-                          },
-                        }}
-                      >
-                        <CardContent sx={{ p: 3, '&:last-child': { pb: 3 } }}>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'space-between',
-                            }}
-                          >
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                              <Box
-                                component={motion.div}
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                sx={{
-                                  color: social.color,
-                                  transition: 'color 0.3s',
-                                }}
-                              >
-                                {social.icon && <social.icon sx={{ fontSize: 40 }} />}
-                              </Box>
-                              <Box>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                  <Typography
-                                    variant="h6"
-                                    sx={{ color: 'primary.main', fontFamily: 'monospace' }}
-                                  >
-                                    {social.name}
-                                  </Typography>
-                                  {social.followers && (
-                                    <Typography variant="body2" color="text.secondary">
-                                      {social.followers} followers
-                                    </Typography>
-                                  )}
-                                </Box>
-                                <Typography variant="body2" color="text.secondary">
-                                  {social.description}
-                                </Typography>
-                              </Box>
-                            </Box>
-                            <Button
-                              component={Link}
-                              href={social.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              variant="outlined"
-                              sx={{
-                                borderColor: 'primary.main',
-                                color: 'primary.main',
-                                fontFamily: 'monospace',
-                                '&:hover': {
-                                  backgroundColor: 'rgba(76, 175, 80, 0.1)',
-                                  borderColor: 'primary.main',
-                                },
-                              }}
-                            >
-                              VISIT
-                            </Button>
-                          </Box>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
+                      name={social.name}
+                      icon={social.icon}
+                      url={social.url}
+                      description={social.description}
+                      color={social.color}
+                      index={index}
+                    />
                   ))}
                 </Box>
               </motion.div>
@@ -369,6 +295,6 @@ export function Socials() {
           </Grid>
         </Container>
       </Box>
-    </ThemeProvider>
+    </ThemeProvider >
   );
 }
