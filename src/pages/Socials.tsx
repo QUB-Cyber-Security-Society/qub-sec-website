@@ -7,6 +7,7 @@ import {
   CalendarMonth,
   OpenInNew,
 } from '@mui/icons-material';
+import DiscordIcon from '../components/icons/DiscordIcon';
 import {
   Box,
   Container,
@@ -21,7 +22,6 @@ import {
   createTheme,
 } from '@mui/material';
 import events from '../events.json';
-// import Discord from '../assets/Discord-Symbol-Blurple.png';
 
 // Define the dark theme for this component
 const darkTheme = createTheme({
@@ -93,7 +93,7 @@ export function Socials() {
   const socialLinks: SocialLink[] = [
     {
       name: 'Discord',
-      // icon: Discord as React.ElementType,
+      icon: DiscordIcon,
       url: 'https://discord.com/invite/tBnbC2egUX',
       description: 'Join our Discord server for real-time updates and discussions',
     },
