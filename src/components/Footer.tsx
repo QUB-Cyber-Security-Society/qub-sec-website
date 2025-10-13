@@ -10,9 +10,9 @@ export function Footer() {
         py: 2,
       }}
     >
-      <Grid sx={{ maxWidth: 'lg', mx: 'auto', px: 2 }}>
+      <Grid container sx={{ maxWidth: 'lg', mx: 'auto', px: 2 }}>
         {/* Bottom Bar */}
-        <Grid item xs={12}>
+        <Grid>
             <Box
               sx={{
                 borderColor: 'success.dark',
