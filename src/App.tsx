@@ -2,10 +2,10 @@ import { Header } from './pages/Header';
 import { Home } from './pages/Home';
 import { Committee } from './pages/Committee';
 import { Lab } from './pages/Lab';
-import { Socials } from './pages/Socials';
 import { Footer } from './pages/Footer';
 import theme from '../src/assets/Theme';
 import { Box } from '@mui/material';
+import Socials from './pages/socials/Socials';
 
 export default function App() {
   return (

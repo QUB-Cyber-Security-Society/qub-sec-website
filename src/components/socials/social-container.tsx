@@ -2,13 +2,11 @@ import { motion } from 'framer-motion';
 import {
     Box,
     Typography,
-    Grid,
     Card,
     CardContent,
     Button,
     Link,
 } from '@mui/material';
-import { OpenInNew } from '@mui/icons-material';
 
 export type SocialContainerProps = {
     name: string;
