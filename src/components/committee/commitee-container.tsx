@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 import { Grid, Card, CardContent, Box, Avatar, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 

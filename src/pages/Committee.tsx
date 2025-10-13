@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
-import { Box, Container, Grid, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Box, Container, Grid } from '@mui/material';
 import CommitteeContainer from '../components/committee/commitee-container';
+import CommitteeHeader from '../components/committee/committee-header';
 
 interface CommitteeMember {
   name: string;
@@ -11,8 +10,6 @@ interface CommitteeMember {
 }
 
 export const Committee: React.FC = () => {
-  const MotionBox = styled(motion.div)({});
-
   const members: CommitteeMember[] = [
     {
       name: "Caolan Maguire",
@@ -44,24 +41,7 @@ export const Committee: React.FC = () => {
       }}
     >
       <Container maxWidth="lg" className="committee-container">
-        <MotionBox
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          sx={{ textAlign: 'center', mb: 8 }}
-        >
-          <Typography variant="h2" sx={{ mb: 2 }}>
-            {'< MEET_THE_COMMITTEE />'}
-          </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '850px', mx: 'auto' }}>
-            Our dedicated committee members are passionate about cybersecurity and committed to fostering a vibrant community.
-          </Typography>
-          <Typography variant="h6" sx={{ maxWidth: '800px', mx: 'auto' }}>
-            Get to know the team driving our society forward!
-          </Typography>
-        </MotionBox>
-
+        <CommitteeHeader />
         <Grid
           container
           sx={{
