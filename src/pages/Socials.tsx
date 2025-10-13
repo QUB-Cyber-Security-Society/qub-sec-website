@@ -372,4 +372,4 @@ export function Socials() {
       </Box>
     </ThemeProvider>
   );
-}﻿
+}
