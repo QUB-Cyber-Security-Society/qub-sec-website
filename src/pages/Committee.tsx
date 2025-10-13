@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from '@mui/material';
-import CommitteeContainer from '../components/committee/commitee-container';
+import CommitteeContainer from '../components/committee/committee-container';
 import CommitteeHeader from '../components/committee/committee-header';
 
 interface CommitteeMember {
