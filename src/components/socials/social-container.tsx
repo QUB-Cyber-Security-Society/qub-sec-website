@@ -19,8 +19,6 @@ export type SocialContainerProps = {
 
 const SocialContainer = ({ name, icon: Icon, url, description, color, index }: SocialContainerProps) => {
     return (
-
-
         <motion.div
             key={name}
             initial={{ y: 20, opacity: 0 }}
