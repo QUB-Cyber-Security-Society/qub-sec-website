@@ -1,11 +1,11 @@
-import { Header } from './components/Header';
-import { Home } from './components/Home';
-import { Committee } from './components/Committee';
-import { Lab } from './components/Lab';
-import { Socials } from './components/Socials';
-import { Footer } from './components/Footer';
+import { Header } from './pages/Header';
+import { Home } from './pages/Home';
+import { Committee } from './pages/Committee';
+import { Lab } from './pages/Lab';
+import { Footer } from './pages/Footer';
 import theme from '../src/assets/Theme';
 import { Box } from '@mui/material';
+import Socials from './pages/socials/Socials';
 
 export default function App() {
   return (

@@ -1,0 +1,30 @@
+[
+    {
+      "id": "1",
+      "title": "Intro to Penetration Testing",
+      "date": "2025-09-22",
+      "type": "Workshop",
+      "description": "Learn the basics of ethical hacking and penetration testing methodologies."
+    },
+    {
+      "id": "2",
+      "title": "Capture The Flag Competition",
+      "date": "2025-09-28",
+      "type": "Competition",
+      "description": "Test your skills in our monthly CTF challenge with prizes for winners."
+    },
+    {
+      "id": "3",
+      "title": "Industry Networking Night",
+      "date": "2025-10-05",
+      "type": "Networking",
+      "description": "Meet professionals from leading cybersecurity companies in Belfast."
+    },
+    {
+      "id": "4",
+      "title": "Weekly Society Meeting",
+      "date": "2025-10-10",
+      "type": "Meeting",
+      "description": "Regular society meeting to discuss upcoming events and initiatives."
+    }
+]
